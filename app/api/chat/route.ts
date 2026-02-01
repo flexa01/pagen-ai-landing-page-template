@@ -7,10 +7,10 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const result = await streamText({
-    // 'google' fonksiyonunu boş çağırıp modeli içinde belirtmek v1beta hatasını çözer
-    model: google('gemini-1.5-flash'), 
+    // İsmi 'models/gemini-1.5-flash' olarak tam yazıyoruz, v1beta hatasını böyle aşabiliriz
+    model: google('models/gemini-1.5-flash'), 
     messages,
-    // Play Store'da çok izlenirsen faturanı koruyacak olan 400 token sınırı [cite: 2026-02-01]
+    // Play Store'da çok izlenirsen faturanı koruyacak olan o meşhur sınır [cite: 2026-02-01]
     maxTokens: 400, 
   });
 
