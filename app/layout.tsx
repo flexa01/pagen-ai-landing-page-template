@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Coming Soon",
+  title: "Zyloft AI",
   description: "Join Beta",
 };
 
