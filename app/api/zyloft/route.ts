@@ -1,31 +1,31 @@
-export const maxDuration = 30;
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
     const lastMessage = messages[messages.length - 1].content;
-    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    
+    // Test için API anahtarını buraya tırnak içinde yapıştırabilirsin
+    const apiKey = process.env.GROQ_API_KEY; 
 
-    if (!apiKey) return new Response("Hata: API Key Yok", { status: 500 });
-
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: lastMessage }] }],
-          generationConfig: { maxOutputTokens: 400 } // Play Store bütçe sigortan [cite: 2026-02-01]
-        })
-      }
-    );
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: "llama-3.1-8b-instant",
+        messages: [{ role: "user", content: lastMessage }],
+        max_tokens: 400 // Play Store bütçe sigortan [cite: 2026-02-01]
+      })
+    });
 
     const data = await response.json();
-    if (data.error) return new Response(`Google: ${data.error.message}`, { status: 500 });
-
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Cevap gelmedi.";
-    return new Response(text);
+    return new Response(JSON.stringify({ text: data.choices[0].message.content }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (err) {
-    return new Response("Kod Hatası", { status: 500 });
+    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
 }
