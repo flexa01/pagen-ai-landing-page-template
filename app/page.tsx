@@ -1,4 +1,4 @@
-export const runtime = "edge";
+"use client";
 
 export default function Home() {
   return (
@@ -18,9 +18,10 @@ export default function Home() {
           textAlign: "center",
           maxWidth: "600px",
           padding: "40px",
-          background: "rgba(255, 255, 255, 0.05)",
-          borderRadius: "16px",
-          backdropFilter: "blur(10px)",
+          background: "rgba(255, 255, 255, 0.06)",
+          borderRadius: "18px",
+          backdropFilter: "blur(12px)",
+          boxShadow: "0 0 40px rgba(90, 50, 255, 0.25)",
         }}
       >
         <h1 style={{ fontSize: "48px", marginBottom: "16px" }}>
@@ -33,7 +34,7 @@ export default function Home() {
 
         <button
           style={{
-            padding: "14px 28px",
+            padding: "14px 30px",
             fontSize: "16px",
             borderRadius: "999px",
             border: "none",
@@ -48,4 +49,3 @@ export default function Home() {
     </main>
   );
 }
-
