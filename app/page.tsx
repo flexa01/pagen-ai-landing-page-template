@@ -1,121 +1,74 @@
-"use client";
+import React from 'react';
 
 export default function Home() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background:
-          "radial-gradient(circle at top, #3b1cff33, transparent 60%), linear-gradient(180deg, #070b16, #0a0f24)",
-        color: "white",
-        fontFamily: "system-ui, sans-serif",
-      }}
-    >
-      {/* HERO */}
-      <section style={{ padding: "120px 20px", textAlign: "center" }}>
-        <h1 style={{ fontSize: "56px", marginBottom: "20px" }}>
-          Zyloft AI
-        </h1>
-        <p style={{ fontSize: "20px", opacity: 0.85 }}>
-          Lightweight intelligence for everyday tasks
-        </p>
-      </section>
-
-      {/* ABOUT */}
-      <section style={{ padding: "80px 20px", maxWidth: "900px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "36px", marginBottom: "16px" }}>
-          What is Zyloft AI?
-        </h2>
-        <p style={{ fontSize: "18px", opacity: 0.8, lineHeight: 1.6 }}>
-          Zyloft AI is a fast, lightweight and privacy-focused artificial
-          intelligence assistant designed to work smoothly on both web and
-          mobile devices without heavy system usage.
-        </p>
-      </section>
-
-      {/* FEATURES */}
-      <section style={{ padding: "80px 20px", maxWidth: "1100px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "36px", marginBottom: "40px", textAlign: "center" }}>
-          Core Features
-        </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "24px",
-          }}
-        >
-          {[
-            ["⚡ Fast & Lightweight", "Runs smoothly even on low-end devices"],
-            ["🔒 Privacy First", "No unnecessary data collection"],
-            ["🤖 Smart Responses", "AI-powered helpful answers"],
-            ["📱 Mobile Ready", "Designed for Android and web"],
-          ].map(([title, desc]) => (
-            <div
-              key={title}
-              style={{
-                padding: "24px",
-                borderRadius: "16px",
-                background: "rgba(255,255,255,0.05)",
-                backdropFilter: "blur(10px)",
-              }}
-            >
-              <h3 style={{ marginBottom: "8px" }}>{title}</h3>
-              <p style={{ opacity: 0.8 }}>{desc}</p>
-            </div>
-          ))}
+    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-blue-500/30">
+      {/* Navbar */}
+      <nav className="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+        <div className="text-2xl font-black tracking-tighter text-blue-500">TICK.</div>
+        <div className="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+          <a href="#features" className="hover:text-white transition">Özellikler</a>
+          <a href="#gamification" className="hover:text-white transition">Puan Sistemi</a>
+          <button className="px-5 py-2 bg-white text-black rounded-full text-xs font-bold hover:bg-gray-200 transition">
+            Play Store
+          </button>
         </div>
-      </section>
+      </nav>
 
-      {/* HOW IT WORKS */}
-      <section style={{ padding: "80px 20px", maxWidth: "900px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "36px", marginBottom: "32px" }}>
-          How It Works
-        </h2>
-        <ol style={{ fontSize: "18px", opacity: 0.85, lineHeight: 2 }}>
-          <li>Ask your question</li>
-          <li>Zyloft AI processes it intelligently</li>
-          <li>Get fast and accurate responses</li>
-        </ol>
-      </section>
-
-      {/* PLATFORM */}
-      <section style={{ padding: "80px 20px", textAlign: "center" }}>
-        <h2 style={{ fontSize: "36px", marginBottom: "16px" }}>
-          Available Platforms
-        </h2>
-        <p style={{ fontSize: "18px", opacity: 0.8 }}>
-          Web · Android (Google Play – Coming Soon)
+      {/* Hero Section */}
+      <main className="max-w-5xl mx-auto px-6 pt-20 pb-32 text-center">
+        <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 text-xs font-bold tracking-widest uppercase">
+          Yeni Nesil Hatırlatıcı
+        </div>
+        <h1 className="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-tight">
+          Başar, Kazan, <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">
+            Modifiye Et.
+          </span>
+        </h1>
+        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+          AI kadar akıllı değil ama ondan çok daha hafif. Görevlerini tamamla, puanları topla ve arayüzünü kendi tarzına göre tasarla.
         </p>
-      </section>
 
-      {/* CTA */}
-      <section
-        style={{
-          padding: "100px 20px",
-          textAlign: "center",
-          background:
-            "linear-gradient(90deg, rgba(90,44,255,0.2), rgba(0,179,255,0.2))",
-        }}
-      >
-        <h2 style={{ fontSize: "40px", marginBottom: "20px" }}>
-          Be ready for Zyloft AI
-        </h2>
-        <button
-          style={{
-            padding: "14px 32px",
-            fontSize: "16px",
-            borderRadius: "999px",
-            border: "none",
-            cursor: "pointer",
-            background: "linear-gradient(90deg, #5b2cff, #00b3ff)",
-            color: "white",
-          }}
-        >
-          Coming Soon on Google Play
-        </button>
-      </section>
-    </main>
+        {/* Play Store Preview */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-20"></div>
+          <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-12 overflow-hidden">
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Feature 1 */}
+              <div className="text-left space-y-4">
+                <div className="text-blue-500 text-3xl font-bold">01</div>
+                <h3 className="text-lg font-bold">Ultra Hafif</h3>
+                <p className="text-sm text-gray-500">Sadece 5MB. Telefonunu yormaz, pilini harcamaz.</p>
+              </div>
+              {/* Feature 2 */}
+              <div className="text-left space-y-4">
+                <div className="text-blue-500 text-3xl font-bold">02</div>
+                <h3 className="text-lg font-bold">+50 Puan</h3>
+                <p className="text-sm text-gray-500">Her hatırlatıcıyı başarıyla tamamladığında puan kazanırsın.</p>
+              </div>
+              {/* Feature 3 */}
+              <div className="text-left space-y-4">
+                <div className="text-blue-500 text-3xl font-bold">03</div>
+                <h3 className="text-lg font-bold">Modifiye</h3>
+                <p className="text-sm text-gray-500">Puanlarınla yeni temalar, sesler ve ikonlar açabilirsin.</p>
+              </div>
+            </div>
+            
+            <div className="mt-16 pt-8 border-t border-zinc-800">
+              <p className="text-sm text-zinc-500 mb-4 font-mono">2026 ROADMAP // GOOGLE PLAY COMING SOON</p>
+              <div className="flex justify-center space-x-4 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" className="h-12" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-zinc-900 text-center text-zinc-600 text-xs">
+        <p>&copy; 2026 TICK. Tüm Hakları Saklıdır.</p>
+      </footer>
+    </div>
   );
 }
