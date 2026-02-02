@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
+// Başlık ve açıklama yeni marka kimliğine göre güncellendi [cite: 2026-02-01]
 export const metadata: Metadata = {
-  title: "Zyloft AI",
-  description: "Join Beta",
+  title: "TICK._ Protocol",
+  description: "Ultra-lightweight task management protocol with gamified rewards.",
 };
 
 export default function RootLayout({
@@ -25,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased bg-[#050505]">
         {children}
       </body>
     </html>
